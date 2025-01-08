@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f0f8ff; /* Light blue background color */
+        }
+        .prediction-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .prediction {
+            font-size: 20px;
+        }
+        .churn {
+            color: red;
+        }
+        .not-churn {
+            color: green;
+        }
+    </style>
+</head>
+
+<body class="landing"
+      style="background:url(../static/img/churn.jpg) no-repeat; background-size:100%;">
+
+    <div class="container">
+        <div class="prediction-container">
+            <h1 style="color:white">Prediction Result</h1>
+            <p class="prediction" style="color:white">Model predicted that Customer is likely to:</p>
+            <h2 style="color: {% if prediction == 'Churn' %}red{% else %}green{% endif %}; font-size:50px;" > <strong>{{prediction}} </strong></h2>
+            <p style="color:white">Probability of Customer Churning: <span style="font-size:25px;">{{predict_probabality}}</span></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #231f20; /* dark background color */
+        }
+    </style>
+    <title>Churn | Customer Churn Prediction</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="/end_to_end_deployment/static/img/churn.jpg" alt="" style="width: 150px; height: auto;">
+            <h1 style="color:white;">Customer Churn Prediction</h1>
+            <p class="lead" style="color:white;">Fill the values below to predict <strong>"Customer Churn"</strong></p>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-12">
+                <h4 class="mb-3" style="color:white;" align="center">Customer Details</h4>
+                
+                <br>
+                <form method="POST" class="needs-validation">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-3 mb-3">
+                            <label for="Tenure" style="color:white;">Tenure <br>
+                                <small style="color:white;">Customer is in relation with Company (In Months)</small></label>
+                            <input type="text" class="form-control" id="Tenure" name="Tenure" placeholder="" value="" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="Citytier" style="color:white;">City Tier  <br>
+                                <small style="color:white;"> 1 = metro-city , 2 = mid-city , 3 = small-town</small></label>
+                            <input type="text" class="form-control" id="Citytier" name="Citytier" placeholder="" value="" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="Warehousetohome" style="color:white;">Delivery Time<br>
+                                <small style="color:white;">(in days)</small></label>
+                            <br><br>
+                            <input type="text" class="form-control" id="Warehousetohome" name="Warehousetohome" placeholder="" value="" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="Gender" style="color:white;">Gender
+                            </label>
+                            <br><br><br>
+                            <select id="Gender" name="Gender" class="form-control" required>
+                                <option value="" selected></option>
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">    
+                        <div class="col-md-3 mb-3">
+                            <label for="Hourspendonapp" style="color:white;">Hour Spend On App</label>
+                            <br>
+                            <br>
+                            <input type="text" class="form-control" id="Hourspendonapp" name="Hourspendonapp" placeholder="" value="" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="Numberofdeviceregistered" style="color:white;">Number Of Device <Registered></Registered></label>
+                            <br>
+                            <br>
+                            <input type="text" class="form-control" id="Numberofdeviceregistered" name="Numberofdeviceregistered" placeholder="" value="" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="Satisfactionscore" style="color:white;">Satisfaction Score <br>
+                                <small style="color:white;">(In range 1 - 10 )</small></label>
+
+                            <input type="text" class="form-control" id="Satisfactionscore" name="Satisfactionscore" placeholder="" value="" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="Maritalstatus" style="color:white;">Marital Status</label>
+                            <br><br>
+                            <select id="Maritalstatus" name="Maritalstatus" class="form-control" required>
+                                <option value="" selected></option>
+                                <option value="divorced">Divorced</option>
+                                <option value="married">Married</option>
+                                <option value="single">Single</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3 mb-3">
+                            <label for="Numberofaddress" style="color:white;">Number Of Address <br>
+                                <small style="color:white;">The total number of addresses the customer has registered with the company.</small>
+                            </label>
+                            <input type="text" class="form-control" id="Numberofaddress" name="Numberofaddress" placeholder="" value="" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="Complain" style="color:white;">Complain  <br>
+                                <small style="color:white;">(1 = Yes, 0 = No)</small></label>
+                            <br>
+                            <br>
+                            <input type="text" class="form-control" id="Complain" name="Complain" placeholder="" value="" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="Orderamounthikefromlastyear" style="color:white;">Order Amount Hike From Last Year <br>
+                                <small style="color:white;">( in percentage )</small></label>
+                            <br>
+                            <br>
+                            <input type="text" class="form-control" id="Orderamounthikefromlastyear" name="Orderamounthikefromlastyear" placeholder="" value="" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="Couponused" style="color:white;">Coupon Used </label>
+                            <br>
+                            <br>
+                            <br>
+                            <input type="text" class="form-control" id="Couponused" name="Couponused" placeholder="" value="" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="Ordercount" style="color:white;">Order Count</label>
+                            <input type="text" class="form-control" id="Ordercount" name="Ordercount" placeholder="" value="" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="Daysincelastorder" style="color:white;">Day(s) Since Last Order</label>
+                            <input type="text" class="form-control" id="Daysincelastorder" name="Daysincelastorder" placeholder="" value="" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="Cashbackamount" style="color:white;">Cashback Amount</label>
+                            <input type="text" class="form-control" id="Cashbackamount" name="Cashbackamount" placeholder="" value="" required>
+                        </div>
+                    </div>
+
+                    <center>
+                        <button class="btn btn-primary btn-lg" type="submit">Predict</button>
+                    </center>
+                </form>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1"></p>
+
+        </footer>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
