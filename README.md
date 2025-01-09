@@ -29,6 +29,7 @@ Open terminal and enter following commands:
 1. pip install virtualenv
 
 2. python -m venv env_name
+
 #env_name is anything that you want
 
 
